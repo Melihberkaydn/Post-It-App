@@ -17,7 +17,11 @@ code {
   margin-right:auto;
   margin-left:auto;
   padding: 0px 15px;
+  padding-bottom: 2rem;
+  min-height: 100vh;
 }
+
+
 
 .notes-list {
   display: grid;
@@ -25,9 +29,7 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.note.new {
-background-color: #67d7cc;
-}
+
 
 textarea {
   border:none;
@@ -62,6 +64,14 @@ textarea:focus {
   white-space: pre-wrap;
 }
 
+.note.new {
+  background-color: #67d7cc;
+  margin: 2rem 0rem;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
 
 .note-footer {
   display: flex;
@@ -90,4 +100,36 @@ textarea:focus {
 
 .search input:focus {
   outline: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.header-mode-button {
+
+width: 7rem;
+height: 2rem;
+background-color: #e1e1e1;
+border-radius: 15px;
+cursor: pointer;
+padding: 5px 10px;
+
+
+}
+
+.header-mode-button:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.dark-mode {
+  background-color: #272e2e;
+}
+
+.dark-mode h1 {
+  color: white;
 }
