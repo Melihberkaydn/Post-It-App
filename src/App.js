@@ -1,5 +1,5 @@
 import NotesList from "./components/NotesList";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import Search from "./components/Search";
 import Header from "./components/Header";
@@ -12,9 +12,22 @@ function App() {
     { id: nanoid(), text: "This is my third note!", date: "17/04/2021" },
     { id: nanoid(), text: "This is my fourth note!", date: "18/04/2021" },
   ]);
-
   const [filterText, setFilterText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+
+  // receive data from local storage of the browser
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  // save notes to the local storage
+  useEffect(() => {
+    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+  }, [notes]);
 
   const changeMode = () => {
     setDarkMode((prevMode) => !prevMode);
