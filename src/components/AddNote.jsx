@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import NoteContext from "../store/note-context";
 
-const AddNote = ({ onAdd }) => {
+const AddNote = () => {
   const [noteText, setNoteText] = useState("");
   const CharacterLimit = 200;
+
+  const noteCtx = useContext(NoteContext);
 
   const handleChange = (event) => {
     if (CharacterLimit - event.target.value.length >= 0) {
@@ -11,7 +14,7 @@ const AddNote = ({ onAdd }) => {
   };
   const handleClick = () => {
     if (noteText.trim().length > 0) {
-      onAdd(noteText);
+      noteCtx.addNote(noteText);
       setNoteText("");
     }
   };

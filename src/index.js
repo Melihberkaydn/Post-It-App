@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import NoteProvider from "./store/NoteProvider";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <NoteProvider>
     <App />
-  </React.StrictMode>,
+  </NoteProvider>,
   document.getElementById("root")
 );
 
