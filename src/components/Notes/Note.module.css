@@ -1,0 +1,41 @@
+
+.note {
+    background-color: #fef68a;
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: pre-wrap;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    font-family: 'Indie Flower';
+    font-size: 21px;
+  }
+  
+  
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+  
+  .delete {
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  .pin {
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+  }
+  
+  
+  .delete:hover {
+    background-color: #b4b4b4;
+  }
+  .pin:hover {
+    background-color: #b4b4b4;
+  }
+  

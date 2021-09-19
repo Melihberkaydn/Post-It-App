@@ -1,9 +1,9 @@
-import NotesList from "./components/NotesList";
+import NotesList from "./components/Notes/NotesList";
 import React, { useContext, useEffect, useState } from "react";
 //
-import Search from "./components/Search";
-import Header from "./components/Header";
-import AddNote from "./components/AddNote";
+import Search from "./components/Layout/Search";
+import Header from "./components/Layout/Header";
+import AddNote from "./components/Notes/AddNote";
 import NoteContext from "./store/note-context";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   //   { id: nanoid(), text: "This is my fourth note!", date: "18/04/2021" },
   // ]);
   const [filterText, setFilterText] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const noteCtx = useContext(NoteContext);
 
@@ -68,6 +68,7 @@ function App() {
         />
         <NotesList
           filterText={filterText}
+          darkMode={darkMode}
           // onDelete={deleteNote}
           // onAdd={addNote}
           // notes={notes.filter((note) =>

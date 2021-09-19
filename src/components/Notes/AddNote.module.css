@@ -1,0 +1,43 @@
+.note {
+    background-color: #67d7cc;
+    margin: 2rem 0rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: pre-wrap;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  }
+  
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+textarea {
+    border:none;
+    resize: none;
+    background-color: #67d7cc;
+  }
+  
+  textarea:focus {
+    outline: none;
+  }
+  
+  .save {
+    background-color: #e1e1e1;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+  }
+  
+  .save:hover {
+    background-color: #ededed;
+    cursor: pointer;
+  }

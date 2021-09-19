@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
-import NoteContext from "../store/note-context";
+import NoteContext from "../../store/note-context";
+import classes from "../Notes/AddNote.module.css";
 
 const AddNote = () => {
   const [noteText, setNoteText] = useState("");
@@ -20,7 +21,7 @@ const AddNote = () => {
   };
 
   return (
-    <div className="note new">
+    <div className={classes.note}>
       <textarea
         rows="8"
         cols="10"
@@ -28,9 +29,9 @@ const AddNote = () => {
         onChange={handleChange}
         value={noteText}
       ></textarea>
-      <div className="note-footer">
+      <div className={classes.footer}>
         <small>{CharacterLimit - noteText.length} remaining</small>
-        <button className="save" onClick={handleClick}>
+        <button className={classes.save} onClick={handleClick}>
           Save
         </button>
       </div>

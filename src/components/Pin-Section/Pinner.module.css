@@ -3,6 +3,12 @@
         display: "block";
         text-align: center;
         margin-bottom: 2em;
+        font-family: 'Indie Flower';
+        font-size: 32px;
+}
+
+.dark {
+  color: white;
 }
 
 .divider {

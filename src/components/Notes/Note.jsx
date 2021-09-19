@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { AiTwotonePushpin } from "react-icons/ai";
-import NoteContext from "../store/note-context";
+import NoteContext from "../../store/note-context";
+import classes from "../Notes/Note.module.css";
 
 const Note = (props) => {
   const noteCtx = useContext(NoteContext);
@@ -15,14 +16,17 @@ const Note = (props) => {
   };
 
   return (
-    <div className="note">
-      <AiTwotonePushpin onClick={() => onPin(props.id)} className="pin-icon" />
+    <div className={classes.note}>
+      <AiTwotonePushpin
+        onClick={() => onPin(props.id)}
+        className={classes.pin}
+      />
       <span>{props.text}</span>
-      <div className="note-footer">
+      <div className={classes.footer}>
         <small>{props.date}</small>
         <MdDeleteForever
           onClick={() => onDelete(props.id)}
-          className="delete-icon"
+          className={classes.delete}
           size="1.3em"
         />
       </div>

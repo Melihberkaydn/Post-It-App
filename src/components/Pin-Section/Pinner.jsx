@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { AiTwotonePushpin } from "react-icons/ai";
-import Note from "../Note";
+import Note from "../Notes/Note";
 import NoteContext from "../../store/note-context";
 import classes from "../Pin-Section/Pinner.module.css";
 
-const Pinner = () => {
+const Pinner = ({ darkMode }) => {
   console.log("PINNER RENDER");
   const noteCtx = useContext(NoteContext);
   return (
     <React.Fragment>
-      <h2 className={classes.header}>
+      <h2 className={`${classes.header} ${darkMode ? classes.dark : ""}`}>
         <AiTwotonePushpin />
         Pinned Notes
       </h2>
