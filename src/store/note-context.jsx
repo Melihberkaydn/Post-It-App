@@ -3,6 +3,7 @@ import React from "react";
 const noteState = {
   notes: [],
   pinnedNotes: [],
+  unpinnedNotes: [],
   searchText: "",
   setNotes: (notes) => {},
   addNote: (text) => {},

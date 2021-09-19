@@ -11,7 +11,7 @@ const Note = (props) => {
   };
 
   const onPin = (id) => {
-    noteCtx.pinNote(id);
+    return noteCtx.pinNote(id);
   };
 
   return (

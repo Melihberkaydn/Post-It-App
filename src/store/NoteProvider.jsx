@@ -2,40 +2,63 @@ import NoteContext from "./note-context";
 import React, { useReducer } from "react";
 import { nanoid } from "nanoid";
 
+const notes = [
+  {
+    id: nanoid(),
+    text: "New bucket list item: Hike to Zugspitze !",
+    date: "15/04/2021",
+    pinned: false,
+  },
+  {
+    id: nanoid(),
+    text: "Reading suggestion: Neil Gaiman - American Gods!",
+    date: "15/04/2021",
+    pinned: false,
+  },
+  {
+    id: nanoid(),
+    text: "Don't forget to buy milk!!!!",
+    date: "19/04/2021",
+    pinned: true,
+  },
+  {
+    id: nanoid(),
+    text: "Math Homework on Friday!!",
+    date: "15/04/2021",
+    pinned: true,
+  },
+  {
+    id: nanoid(),
+    text: "June's birthday on next week!",
+    date: "19/04/2021",
+    pinned: true,
+  },
+];
+
 const defaultNoteState = {
-  notes: [
-    {
-      id: nanoid(),
-      text: "This is my first note!",
-      date: "15/04/2021",
-      pinned: false,
-    },
-  ],
-  pinnedNotes: [
-    {
-      id: nanoid(),
-      text: "Pinned Second Note!",
-      date: "15/04/2021",
-      pinned: true,
-    },
-    {
-      id: nanoid(),
-      text: "Pinned first note!",
-      date: "19/04/2021",
-      pinned: true,
-    },
-  ],
+  notes: notes,
+  pinnedNotes: notes.filter((note) => {
+    return note.pinned === true;
+  }),
+  unpinnedNotes: notes.filter((note) => {
+    return note.pinned === false;
+  }),
 };
 
 const noteReducer = (state, action) => {
   if (action.type === "SET") {
     return {
       notes: action.item,
-      pinnedNotes: state.pinnedNotes,
+      pinnedNotes: action.item.filter((note) => {
+        return note.pinned === true;
+      }),
+      unpinnedNotes: action.item.filter((note) => {
+        return note.pinned === false;
+      }),
     };
   } else if (action.type === "ADD") {
     const date = new Date();
-    const newNotes = [
+    const updatedNotes = [
       {
         id: nanoid(),
         text: action.item,
@@ -46,40 +69,44 @@ const noteReducer = (state, action) => {
     ];
 
     return {
-      notes: newNotes,
+      notes: updatedNotes,
       pinnedNotes: state.pinnedNotes,
+      unpinnedNotes: updatedNotes.filter((note) => {
+        return note.pinned === false;
+      }),
     };
   } else if (action.type === "REMOVE") {
-    const newNotes = state.notes.filter((note) => {
+    const updatedNotes = state.notes.filter((note) => {
       return note.id !== action.id;
     });
     return {
-      notes: newNotes,
-      pinnedNotes: state.pinnedNotes,
+      notes: updatedNotes,
+      pinnedNotes: updatedNotes.filter((note) => {
+        return note.pinned === true;
+      }),
+      unpinnedNotes: updatedNotes.filter((note) => {
+        return note.pinned === false;
+      }),
     };
   } else if (action.type === "PIN") {
+    console.log("Pin function activated");
     const pinnedNoteIndex = state.notes.findIndex((note) => {
       return note.id === action.id;
     });
     let updatedNotes = [...state.notes];
     const pinnedNote = state.notes[pinnedNoteIndex];
 
-    console.log(updatedNotes);
-    console.log(pinnedNote);
-    // const newNoteState = { ...pinnedNote, pinned: !pinnedNote.pinned };
-    // updatedNotes[pinnedNoteIndex] = newNoteState;
-
-    // const pinnedNotes = updatedNotes.filter((note) => {
-    //   return note.pinned !== true;
-    // });
-
-    // updatedNotes = updatedNotes.filter((note) => {
-    //   return note.pinned !== true;
-    // });
+    const newNoteState = { ...pinnedNote, pinned: !pinnedNote.pinned };
+    updatedNotes[pinnedNoteIndex] = newNoteState;
 
     return {
-      //notes: updatedNotes,
-      //pinnedNotes: pinnedNotes,
+      notes: updatedNotes,
+      pinnedNotes: updatedNotes.filter((note) => {
+        return note.pinned === true;
+      }),
+      unpinnedNotes: updatedNotes.filter((note) => {
+        return note.pinned === false;
+      }),
     };
   }
 
@@ -105,12 +132,13 @@ const NoteProvider = (props) => {
   };
 
   const pinNote = (id) => {
-    dispatchNoteAction({ type: "PIN", item: id });
+    dispatchNoteAction({ type: "PIN", id: id });
   };
 
   const noteContext = {
     notes: noteState.notes,
     pinnedNotes: noteState.pinnedNotes,
+    unpinnedNotes: noteState.unpinnedNotes,
     setNotes: setNotes,
     addNote: addNote,
     removeNote: removeNote,

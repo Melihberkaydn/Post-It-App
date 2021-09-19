@@ -5,6 +5,7 @@ import NoteContext from "../../store/note-context";
 import classes from "../Pin-Section/Pinner.module.css";
 
 const Pinner = () => {
+  console.log("PINNER RENDER");
   const noteCtx = useContext(NoteContext);
   return (
     <React.Fragment>

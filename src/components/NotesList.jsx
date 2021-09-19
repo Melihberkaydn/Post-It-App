@@ -4,9 +4,11 @@ import NoteContext from "../store/note-context";
 import Pinner from "./Pin-Section/Pinner";
 
 const NotesList = ({ filterText }) => {
+  console.log("NOTES LIST RENDER");
+
   const noteCtx = useContext(NoteContext);
 
-  const filteredNotes = noteCtx.notes.filter((note) => {
+  const filteredNotes = noteCtx.unpinnedNotes.filter((note) => {
     return note.text.toLocaleLowerCase().includes(filterText);
   });
 
