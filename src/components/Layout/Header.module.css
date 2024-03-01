@@ -1,34 +1,41 @@
-
 h1 {
-    font-family: 'Indie Flower';
-    font-size: 48px;
+  font-family: "Indie Flower";
+  font-size: 48px;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 2rem;
-  }
-  
-  .button {
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.button {
   width: 7rem;
   height: 2rem;
   background-color: #e1e1e1;
   border-radius: 15px;
   cursor: pointer;
   padding: 5px 10px;
-  
-  
-  }
-  
-  .button:hover {
-    background-color: #ededed;
-    cursor: pointer;
-  }
+  color: black;
+}
 
+.button:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
 
 .dark {
-    color: white;
-  }
+  color: white;
+}
+
+.list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  text-decoration: none;
+}
+
+.list a {
+  text-decoration: none;
+}
