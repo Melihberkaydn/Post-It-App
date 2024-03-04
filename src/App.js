@@ -4,20 +4,23 @@ import AuthenticationPage, {
   action as authAction,
 } from "../src/pages/AuthenticationPage";
 import { action as logoutAction } from "./pages/Logout";
+import { tokenLoader } from "./auth/auth";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      id: "root",
+      loader: tokenLoader,
       element: <Layout />,
     },
     {
-      path: "auth",
+      path: "/auth",
       element: <AuthenticationPage />,
       action: authAction,
     },
     {
-      path: "logout",
+      path: "/logout",
       action: logoutAction,
     },
   ]);
