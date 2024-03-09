@@ -13,9 +13,9 @@ const Header = ({ onModeChange, darkMode }) => {
             </button>
           </li>
           <li>
-            <NavLink to="/auth?mode=login" className={classes.button}>
+            {/* <NavLink to="/auth?mode=login" className={classes.button}>
               Login
-            </NavLink>
+            </NavLink> */}
           </li>
         </ul>
       </nav>
