@@ -19,6 +19,7 @@ function Layout() {
     if (savedNotes) {
       noteCtx.setNotes(savedNotes);
     }
+    // eslint-disable-next-line
   }, []);
 
   // save notes to the local storage

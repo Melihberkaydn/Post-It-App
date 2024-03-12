@@ -1,5 +1,4 @@
 import classes from "../Layout/Header.module.css";
-import { NavLink } from "react-router-dom";
 
 const Header = ({ onModeChange, darkMode }) => {
   return (
