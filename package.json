@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Melihberkaydn.github.io/",
   "name": "post-it-app",
+  "homepage": "http://Melihberkaydn.github.io/post-it-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

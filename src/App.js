@@ -7,20 +7,22 @@ import { action as logoutAction } from "./pages/Logout";
 import { tokenLoader } from "./auth/auth";
 
 function App() {
+  const publicUrl = process.env.PUBLIC_URL; // Get the base path from PUBLIC_URL
+
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: `${publicUrl}/`,
       id: "root",
       loader: tokenLoader,
       element: <Layout />,
     },
     {
-      path: "/auth",
+      path: `${publicUrl}/auth`,
       element: <AuthenticationPage />,
       action: authAction,
     },
     {
-      path: "/logout",
+      path: `${publicUrl}/logout`,
       action: logoutAction,
     },
   ]);
