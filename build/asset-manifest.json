@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Post-It-App/static/css/main.5f053945.css",
+    "main.js": "/Post-It-App/static/js/main.e16cee89.js",
+    "index.html": "/Post-It-App/index.html",
+    "main.5f053945.css.map": "/Post-It-App/static/css/main.5f053945.css.map",
+    "main.e16cee89.js.map": "/Post-It-App/static/js/main.e16cee89.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f053945.css",
+    "static/js/main.e16cee89.js"
+  ]
+}
